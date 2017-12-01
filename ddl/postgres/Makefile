@@ -91,6 +91,7 @@ load_cross: $(wildcard */_cross.sql)
 	#before executing _cross.sql, execute SET statements from prelude
 	$(foreach cf,$?, { grep SET $(patsubst %/_cross.sql,%/prelude.sql,$(cf)); \
 		cat $(cf); } | $(PSQL_COMMAND);)
+	$(PSQL_COMMAND) -f customizations/tooltips.sql
 
 $(LOAD_TARGETS): load_global
 
@@ -103,6 +104,5 @@ load: $(LOAD_TARGETS)
 	$(MAKE) load_cross
 	$(MAKE) -C META load
 	$(PSQL_COMMAND) -f customizations/data_attestation.sql
-	$(PSQL_COMMAND) -f customizations/tooltips.sql
 
 .PHONY: load load_global load_cross
