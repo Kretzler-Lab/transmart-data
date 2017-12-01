@@ -102,5 +102,7 @@ load_%: %/_load_all.sql
 load: $(LOAD_TARGETS)
 	$(MAKE) load_cross
 	$(MAKE) -C META load
+	$(PSQL_COMMAND) -f customizations/data_attestation.sql
+	$(PSQL_COMMAND) -f customizations/tooltips.sql
 
 .PHONY: load load_global load_cross
