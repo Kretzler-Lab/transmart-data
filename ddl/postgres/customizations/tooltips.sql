@@ -30,12 +30,12 @@ BEGIN
 			this_nodepath = tooltip_row.nodepath;
 		END IF;
 
-		IF this_nodepath = '\' THEN
+		IF this_nodepath = '\' OR this_nodepath IS NULL THEN
 			this_nodepath = '';
 		END IF;
 
-		this_nodepath = regexp_replace(this_nodepath, '(?:\+)', '\');
-		this_nodepath = regexp_replace(this_nodepath, '(?:\_)', ' ');
+		this_nodepath = regexp_replace(this_nodepath, '\+', '\', 'g');
+		this_nodepath = regexp_replace(this_nodepath, '\_', ' ', 'g');
 		this_nodepath = '\Private Studies\' || studyname || '\' || this_nodepath;
 
 		PERFORM c_fullname FROM i2b2metadata.i2b2 
