@@ -1,0 +1,15 @@
+make: Entering directory `/transmart/transmart-data/samples/postgres'
+Makefile:2: *** You need to set KETTLE_JOBS_PSQL; KETTLE_JOBS has been renamed.  Stop.
+make: Leaving directory `/transmart/transmart-data/samples/postgres'
+make: Entering directory `/transmart/transmart-data/samples/postgres'
+DATA_LOCATION="/transmart/transmart-data/samples/studies/ST2_1_altCDFv19/annotation" \
+	KETTLE_HOME="/transmart/transmart-data/samples/postgres/kettle-home" \
+	PSQL_COMMAND="/usr/bin/psql -v ON_ERROR_STOP=1 --single-transaction -X" \
+	./load_annotation.sh ../studies/ST2_1_altCDFv19/annotation.params
+Processing file ../studies/ST2_1_altCDFv19/annotation.params $PARAMS_FILENAME /transmart/transmart-data/samples/studies/ST2_1_altCDFv19/annotation.params
+Info load_annotation.sh: Sourced params file /transmart/transmart-data/samples/studies/ST2_1_altCDFv19/annotation.params
+Warning: could not determine STUDY_NAME or STUDY_ID
+         that's probably OK for platform definitions.
+Info load_annotation.sh: assuming STUDY_ID=
+[33mWARNING[m: Platform ST2_1_altCDFv19 already loaded; skipping
+make: Leaving directory `/transmart/transmart-data/samples/postgres'

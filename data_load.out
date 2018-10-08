@@ -1,0 +1,778 @@
+make: Entering directory `/transmart/transmart-data/samples/postgres'
+php -d variables_order=E gen_kettle_properties.php > kettle-home/kettle.properties
+make -C ../studies SanofiRnaseqGSE48213/rnaseq.params
+make[1]: Entering directory `/transmart/transmart-data/samples/studies'
+make SanofiRnaseqGSE48213/SanofiRnaseqGSE48213_rnaseq.tar.xz
+make[2]: Entering directory `/transmart/transmart-data/samples/studies'
+mkdir -p "$(php -r 'preg_match("@^[^/]+@", $argv[1], $m); echo $m[0];' 'SanofiRnaseqGSE48213/SanofiRnaseqGSE48213_rnaseq.tar.xz')"
+./download_tarball.sh 'SanofiRnaseqGSE48213/SanofiRnaseqGSE48213_rnaseq.tar.xz' $(php get_file_location.php 'SanofiRnaseqGSE48213/SanofiRnaseqGSE48213_rnaseq.tar.xz')
+Trying http://library.transmartfoundation.org/datasets/SanofiRnaseqGSE48213/SanofiRnaseqGSE48213_rnaseq.tar.xz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 6614k  100 6614k    0     0  40.5M      0 --:--:-- --:--:-- --:--:-- 40.8M
+make[2]: Leaving directory `/transmart/transmart-data/samples/studies'
+tar -C SanofiRnaseqGSE48213 -xJf SanofiRnaseqGSE48213/SanofiRnaseqGSE48213_rnaseq.tar.xz
+make[1]: Leaving directory `/transmart/transmart-data/samples/studies'
+make -C ../studies SanofiRnaseqGSE48213/rnaseq
+make[1]: Entering directory `/transmart/transmart-data/samples/studies'
+make[1]: Nothing to be done for `SanofiRnaseqGSE48213/rnaseq'.
+make[1]: Leaving directory `/transmart/transmart-data/samples/studies'
+STUDY_ID=SanofiRnaseqGSE48213 DATA_LOCATION="/transmart/transmart-data/samples/studies/SanofiRnaseqGSE48213/rnaseq" \
+		KETTLE_HOME="/transmart/transmart-data/samples/postgres/kettle-home" \
+		./load_rnaseq.sh ../studies/SanofiRnaseqGSE48213/rnaseq.params
+Processing file ../studies/SanofiRnaseqGSE48213/rnaseq.params $PARAMS_FILENAME /transmart/transmart-data/samples/studies/SanofiRnaseqGSE48213/rnaseq.params
+Info load_rnaseq.sh: Sourced params file /transmart/transmart-data/samples/studies/SanofiRnaseqGSE48213/rnaseq.params
+2018/06/22 13:32:53 - Kitchen - Start of run.
+2018/06/22 13:32:54 - load_RNA_sequencing_data - Start of job execution
+2018/06/22 13:32:54 - load_RNA_sequencing_data - Starting entry [Validate parameters]
+2018/06/22 13:32:54 - Validate parameters - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/valid_RNA_sequencing_params.ktr]
+2018/06/22 13:32:54 - valid_RNA_sequencing_params - Dispatching started for transformation [valid_RNA_sequencing_params]
+2018/06/22 13:32:54 - Get variables for STUDY_ID, TOP_NODE, LOAD_TYPE, DATA_TYPE.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - String operations.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Check STUDY_ID is not nul.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Check TOP_NODE is not nul.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Check LOAD_TYPE in I, L, F.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Check INC_LOAD parameters.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Dummy (do nothing).0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - load_RNA_sequencing_data - Starting entry [Write To Log]
+2018/06/22 13:32:54 - \Test Studies\test_RNAseq_GSE48213\  / LOAD_TYPE: I - This is the top level of the study and the LOAD_TYPE parameter
+2018/06/22 13:32:54 - load_RNA_sequencing_data - Starting entry [Check number of RNA sequencing data files]
+2018/06/22 13:32:54 - Check number of RNA sequencing data files - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/check_RNA_sequencing_filenames.ktr]
+2018/06/22 13:32:54 - check_RNA_sequencing_filenames - Dispatching started for transformation [check_RNA_sequencing_filenames]
+2018/06/22 13:32:54 - Get File Names.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Select values.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Group by.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Write to log.0 - 
+2018/06/22 13:32:54 - Write to log.0 - ------------> Linenr 1------------------------------
+2018/06/22 13:32:54 - Write to log.0 - *** Number of files to be processed ***
+2018/06/22 13:32:54 - Write to log.0 - 
+2018/06/22 13:32:54 - Write to log.0 - 1
+2018/06/22 13:32:54 - Write to log.0 - 
+2018/06/22 13:32:54 - Write to log.0 - ====================
+2018/06/22 13:32:54 - Set Variables.0 - Setting environment variables...
+2018/06/22 13:32:54 - Set Variables.0 - Set variable TOTAL_FILES to value [1]
+2018/06/22 13:32:54 - Write to log.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Set Variables.0 - Finished after 1 rows.
+2018/06/22 13:32:54 - Set Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - load_RNA_sequencing_data - Starting entry [Fail if number of files = 0]
+2018/06/22 13:32:54 - load_RNA_sequencing_data - Starting entry [Check if subject-sample map file exists]
+2018/06/22 13:32:54 - load_RNA_sequencing_data - Starting entry [Start Audit]
+2018/06/22 13:32:54 - Start Audit - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/cz_start_audit.ktr]
+2018/06/22 13:32:54 - cz_start_audit - Dispatching started for transformation [cz_start_audit]
+2018/06/22 13:32:54 - Generate Rows.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Get Job Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Set Env for the job.0 - Setting environment variables...
+2018/06/22 13:32:54 - Set Env for the job.0 - Set variable ETL_JOB_NAME to value [load_RNA_sequencing_data]
+2018/06/22 13:32:54 - Set Env for the job.0 - Set variable ETL_JOB_ID to value [11]
+2018/06/22 13:32:54 - Set Env for the job.0 - Finished after 1 rows.
+2018/06/22 13:32:54 - Set Env for the job.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Call cz_start_audit.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - load_RNA_sequencing_data - Starting entry [Load All RNA sequencing data for study]
+2018/06/22 13:32:54 - load_all_RNA_sequencing_data - Starting entry [Check if file-only load]
+2018/06/22 13:32:54 - load_all_RNA_sequencing_data - Starting entry [Create study_id audit record]
+2018/06/22 13:32:54 - Create study_id audit record - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/write_study_id_to_audit.ktr]
+2018/06/22 13:32:54 - write_study_id_to_audit - Dispatching started for transformation [write_study_id_to_audit]
+2018/06/22 13:32:54 - Get System Info.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Get job_name, study_id.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Add constants.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Set procedure_name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Call cz_write_audit.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - load_all_RNA_sequencing_data - Starting entry [Write audit with study_id]
+2018/06/22 13:32:54 - Write audit with study_id - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/cz_write_audit.ktr]
+2018/06/22 13:32:54 - load_all_RNA_sequencing_data - Starting entry [truncate lt_src_RNA_sequencing_data]
+2018/06/22 13:32:54 - load_all_RNA_sequencing_data - Starting entry [Load subject-sample map]
+2018/06/22 13:32:54 - Load subject-sample map - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/load_RNA_sequencing_sample_map_to_lt.ktr]
+2018/06/22 13:32:54 - load_RNA_sequencing_sample_map_to_lt - Dispatching started for transformation [load_RNA_sequencing_sample_map_to_lt]
+2018/06/22 13:32:54 - Insert to lt_src_RNA_sequencing_subj_samp_map.0 - Connected to database [TM_LZ] (commit=1000)
+2018/06/22 13:32:54 - Insert to lt_src_display_mapping.0 - Connected to database [TM_LZ] (commit=1000)
+2018/06/22 13:32:54 - Read subject-sample map file.0 - Opening file: file:///transmart/transmart-data/samples/studies/SanofiRnaseqGSE48213/rnaseq/GSE48213_sample_mapping.txt
+2018/06/22 13:32:54 - Read sample_mapping_file.0 - Opening file: file:///transmart/transmart-data/samples/studies/SanofiRnaseqGSE48213/rnaseq/GSE48213_display_mapping.txt
+2018/06/22 13:32:54 - Read sample_mapping_file.0 - Finished processing (I=1, O=0, R=0, W=0, U=1, E=0)
+2018/06/22 13:32:54 - Read subject-sample map file.0 - Finished processing (I=57, O=0, R=0, W=56, U=1, E=0)
+2018/06/22 13:32:54 - Check for required fields.0 - Finished processing (I=0, O=0, R=56, W=56, U=0, E=0)
+2018/06/22 13:32:54 - Uppercase study_id.0 - Finished processing (I=0, O=0, R=56, W=56, U=0, E=0)
+2018/06/22 13:32:54 - Get SOURCE_CD.0 - Finished processing (I=0, O=0, R=56, W=56, U=0, E=0)
+2018/06/22 13:32:54 - Select null or matching source_cd.0 - Finished processing (I=0, O=0, R=56, W=56, U=0, E=0)
+2018/06/22 13:32:54 - Set null tissue_type to Unknown.0 - Finished processing (I=0, O=0, R=56, W=56, U=0, E=0)
+2018/06/22 13:32:54 - Insert to lt_src_RNA_sequencing_subj_samp_map.0 - Finished processing (I=0, O=56, R=56, W=56, U=0, E=0)
+2018/06/22 13:32:54 - load_all_RNA_sequencing_data - Starting entry [Get list of filenames for Study]
+2018/06/22 13:32:54 - Get list of filenames for Study - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/get_list_of_RNA_sequencing_filenames.ktr]
+2018/06/22 13:32:54 - get_list_of_RNA_sequencing_filenames - Dispatching started for transformation [get_list_of_RNA_sequencing_filenames]
+2018/06/22 13:32:54 - Get File Names.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Get filename with no extension.0 - Optimization level set to 9.
+2018/06/22 13:32:54 - Get filename with no extension.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Select values.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Copy rows to result.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - load_all_RNA_sequencing_data - Starting entry [load each file for study]
+2018/06/22 13:32:54 - load_RNA_sequencing_expression_one_study - Starting entry [Set RNA sequencing filename as variable]
+2018/06/22 13:32:54 - Set RNA sequencing filename as variable - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/set_RNA_sequencing_filename.ktr]
+2018/06/22 13:32:54 - set_RNA_sequencing_filename - Dispatching started for transformation [set_RNA_sequencing_filename]
+2018/06/22 13:32:54 - Get rows from result.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Write to log.0 - 
+2018/06/22 13:32:54 - Write to log.0 - ------------> Linenr 1------------------------------
+2018/06/22 13:32:54 - Write to log.0 - *** Processing file ***
+2018/06/22 13:32:54 - Write to log.0 - 
+2018/06/22 13:32:54 - Write to log.0 - GSE48213_all_patients.txt
+2018/06/22 13:32:54 - Write to log.0 - 
+2018/06/22 13:32:54 - Write to log.0 - ====================
+2018/06/22 13:32:54 - Set Variables.0 - Setting environment variables...
+2018/06/22 13:32:54 - Set Variables.0 - Set variable FILENAME to value [GSE48213_all_patients.txt]
+2018/06/22 13:32:54 - Set Variables.0 - Set variable FILENAME_NO_EXT to value [GSE48213_all_patients]
+2018/06/22 13:32:54 - Write to log.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Set Variables.0 - Finished after 1 rows.
+2018/06/22 13:32:54 - Set Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - load_RNA_sequencing_expression_one_study - Starting entry [Validate RNA sequencing header has same nbr columns as data]
+2018/06/22 13:32:54 - Validate RNA sequencing header has same nbr columns as data - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/validate_RNA_sequencing_columns.ktr]
+2018/06/22 13:32:54 - validate_RNA_sequencing_columns - Dispatching started for transformation [validate_RNA_sequencing_columns]
+2018/06/22 13:32:54 - Get Header Row.0 - Opening file: file:///transmart/transmart-data/samples/studies/SanofiRnaseqGSE48213/rnaseq/GSE48213_all_patients.txt
+2018/06/22 13:32:54 - Get first data row.0 - Opening file: file:///transmart/transmart-data/samples/studies/SanofiRnaseqGSE48213/rnaseq/GSE48213_all_patients.txt
+2018/06/22 13:32:54 - Read all records.0 - Opening file: file:///transmart/transmart-data/samples/studies/SanofiRnaseqGSE48213/rnaseq/GSE48213_all_patients.txt
+2018/06/22 13:32:54 - Get Header Row.0 - Finished processing (I=1, O=0, R=0, W=1, U=1, E=0)
+2018/06/22 13:32:54 - Split header.0 - Finished processing (I=0, O=0, R=1, W=57, U=0, E=0)
+2018/06/22 13:32:54 - Get first data row.0 - Finished processing (I=2, O=0, R=0, W=1, U=1, E=0)
+2018/06/22 13:32:54 - Split data.0 - Finished processing (I=0, O=0, R=1, W=57, U=0, E=0)
+2018/06/22 13:32:54 - Select hdr_col.0 - Finished processing (I=0, O=0, R=57, W=57, U=0, E=0)
+2018/06/22 13:32:54 - Count hdr_col.0 - Finished processing (I=0, O=0, R=57, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Select data_col.0 - Finished processing (I=0, O=0, R=57, W=57, U=0, E=0)
+2018/06/22 13:32:54 - Count data_col.0 - Finished processing (I=0, O=0, R=57, W=1, U=0, E=0)
+2018/06/22 13:32:54 - add join_col for hdr_ct.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:54 - Add join_col for data_ct.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:55 - Join hdr_ct and data_ct.0 - Finished processing (I=0, O=0, R=2, W=1, U=0, E=0)
+2018/06/22 13:32:55 - Nbr of header cols = nbr data cols.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:55 - Get LOAD_TYPE.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:55 - Check if LOAD_TYPE = F.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:55 - constant 1.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:55 - Subtract 1 from hdr_ct to get count of samples.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:57 - Read all records.0 - Finished processing (I=36954, O=0, R=0, W=36953, U=1, E=0)
+2018/06/22 13:32:57 - Count probesets.0 - Finished processing (I=0, O=0, R=36953, W=1, U=0, E=0)
+2018/06/22 13:32:57 - add join_col for probeset_ct.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:57 - Add probeset_ct to results.0 - Finished processing (I=0, O=0, R=2, W=1, U=0, E=0)
+2018/06/22 13:32:57 - Select counts.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:57 - Separate counts into 2 records.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2018/06/22 13:32:57 - Add step_desc.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2018/06/22 13:32:57 - Set step_desc to step_number.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2018/06/22 13:32:57 - Convert step_nbr to integer.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2018/06/22 13:32:57 - Set step_desc based on value from step_number.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2018/06/22 13:32:57 - Get Variables.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2018/06/22 13:32:57 - Add procedure_name.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2018/06/22 13:32:57 - Select values.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2018/06/22 13:32:57 - Copy rows to result.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2018/06/22 13:32:57 - load_RNA_sequencing_expression_one_study - Starting entry [Write audit for probeset count, sample count]
+2018/06/22 13:32:57 - Write audit for probeset count, sample count - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/cz_write_audit.ktr]
+2018/06/22 13:32:57 - cz_write_audit - Dispatching started for transformation [cz_write_audit]
+2018/06/22 13:32:57 - Get rows from result.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:57 - Get Job Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:57 - Add Kettle prefix.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:57 - Create procedure_name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:57 - Call cz_write_audit.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:57 - cz_write_audit - Dispatching started for transformation [cz_write_audit]
+2018/06/22 13:32:57 - Get rows from result.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:57 - Get Job Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:57 - Add Kettle prefix.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:57 - Create procedure_name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:57 - Call cz_write_audit.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:32:57 - load_RNA_sequencing_expression_one_study - Starting entry [pivot]
+2018/06/22 13:32:57 - pivot - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/pivot_RNA_sequencing_file.ktr]
+2018/06/22 13:32:57 - pivot_RNA_sequencing_file - Dispatching started for transformation [pivot_RNA_sequencing_file]
+2018/06/22 13:32:58 - Text file input.0 - Opening file: file:///transmart/transmart-data/samples/studies/SanofiRnaseqGSE48213/rnaseq/GSE48213_all_patients.txt
+2018/06/22 13:32:58 - Text file output.0 - linenr 50000
+2018/06/22 13:32:58 - Text file output.0 - linenr 100000
+2018/06/22 13:32:58 - Text file output.0 - linenr 150000
+2018/06/22 13:32:58 - Text file output.0 - linenr 200000
+2018/06/22 13:32:58 - Text file output.0 - linenr 250000
+2018/06/22 13:32:58 - Text file output.0 - linenr 300000
+2018/06/22 13:32:58 - Text file output.0 - linenr 350000
+2018/06/22 13:32:58 - Text file output.0 - linenr 400000
+2018/06/22 13:32:58 - Text file output.0 - linenr 450000
+2018/06/22 13:32:58 - Text file output.0 - linenr 500000
+2018/06/22 13:32:59 - Text file output.0 - linenr 550000
+2018/06/22 13:32:59 - Text file output.0 - linenr 600000
+2018/06/22 13:32:59 - Text file output.0 - linenr 650000
+2018/06/22 13:32:59 - Text file output.0 - linenr 700000
+2018/06/22 13:32:59 - Text file output.0 - linenr 750000
+2018/06/22 13:32:59 - Text file output.0 - linenr 800000
+2018/06/22 13:32:59 - Text file output.0 - linenr 850000
+2018/06/22 13:32:59 - Text file output.0 - linenr 900000
+2018/06/22 13:32:59 - Text file output.0 - linenr 950000
+2018/06/22 13:32:59 - Text file output.0 - linenr 1000000
+2018/06/22 13:32:59 - Text file output.0 - linenr 1050000
+2018/06/22 13:33:00 - Text file output.0 - linenr 1100000
+2018/06/22 13:33:00 - Text file output.0 - linenr 1150000
+2018/06/22 13:33:00 - Text file output.0 - linenr 1200000
+2018/06/22 13:33:00 - Text file output.0 - linenr 1250000
+2018/06/22 13:33:00 - Text file output.0 - linenr 1300000
+2018/06/22 13:33:00 - Text file output.0 - linenr 1350000
+2018/06/22 13:33:00 - Text file output.0 - linenr 1400000
+2018/06/22 13:33:00 - Text file output.0 - linenr 1450000
+2018/06/22 13:33:00 - Text file input.0 - Finished processing (I=36954, O=0, R=0, W=36954, U=1, E=0)
+2018/06/22 13:33:00 - Text file output.0 - linenr 1500000
+2018/06/22 13:33:00 - Text file output.0 - linenr 1550000
+2018/06/22 13:33:00 - Text file output.0 - linenr 1600000
+2018/06/22 13:33:01 - Text file output.0 - linenr 1650000
+2018/06/22 13:33:01 - Text file output.0 - linenr 1700000
+2018/06/22 13:33:01 - Text file output.0 - linenr 1750000
+2018/06/22 13:33:01 - Text file output.0 - linenr 1800000
+2018/06/22 13:33:01 - Text file output.0 - linenr 1850000
+2018/06/22 13:33:01 - Text file output.0 - linenr 1900000
+2018/06/22 13:33:01 - Text file output.0 - linenr 1950000
+2018/06/22 13:33:01 - Text file output.0 - linenr 2000000
+2018/06/22 13:33:01 - Text file output.0 - linenr 2050000
+2018/06/22 13:33:01 - User Defined Java Class.0 - Finished processing (I=0, O=0, R=36954, W=2069368, U=0, E=0)
+2018/06/22 13:33:01 - Text file output.0 - Finished processing (I=0, O=2069369, R=2069368, W=2069368, U=0, E=0)
+2018/06/22 13:33:01 - load_RNA_sequencing_expression_one_study - Starting entry [Load RNA sequencing expression data to lz]
+2018/06/22 13:33:01 - Load RNA sequencing expression data to lz - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/load_RNA_sequencing_expression_data_to_lz.ktr]
+2018/06/22 13:33:01 - load_RNA_sequencing_expression_data_to_lz - Dispatching started for transformation [load_RNA_sequencing_expression_data_to_lz]
+2018/06/22 13:33:01 - Insert to lt_src_RNA_sequencing_data.0 - Connected to database [TM_LZ] (commit=1000)
+2018/06/22 13:33:01 - Get pivoted file.0 - Opening file: file:///tmp/GSE48213_all_patients_pivot.txt
+2018/06/22 13:33:01 - Check for numeric intensity.0 - Optimization level set to 9.
+2018/06/22 13:33:02 - Get pivoted file.0 - linenr 50000
+2018/06/22 13:33:02 - Check for numeric intensity.0 - linenr 50000
+2018/06/22 13:33:02 - Drop non-numeric data.0 - linenr 50000
+2018/06/22 13:33:02 - SAMPLE_REMAP_FILE present.0 - linenr 50000
+2018/06/22 13:33:02 - SAMPLE_SUFFIX present.0 - linenr 50000
+2018/06/22 13:33:02 - Select values 2.0 - linenr 50000
+2018/06/22 13:33:02 - Get pivoted file.0 - linenr 100000
+2018/06/22 13:33:02 - Check for numeric intensity.0 - linenr 100000
+2018/06/22 13:33:02 - Drop non-numeric data.0 - linenr 100000
+2018/06/22 13:33:02 - Select values for RNA_sequencing data.0 - linenr 50000
+2018/06/22 13:33:02 - SAMPLE_REMAP_FILE present.0 - linenr 100000
+2018/06/22 13:33:02 - Check if LOAD_TYPE = L.0 - linenr 50000
+2018/06/22 13:33:02 - SAMPLE_SUFFIX present.0 - linenr 100000
+2018/06/22 13:33:02 - Get pivoted file.0 - linenr 150000
+2018/06/22 13:33:02 - Check if LOAD_TYPE = I.0 - linenr 50000
+2018/06/22 13:33:02 - Select values 2.0 - linenr 100000
+2018/06/22 13:33:02 - Check for numeric intensity.0 - linenr 150000
+2018/06/22 13:33:02 - Insert to lt_src_RNA_sequencing_data.0 - linenr 50000
+2018/06/22 13:33:02 - Drop non-numeric data.0 - linenr 150000
+2018/06/22 13:33:03 - Select values for RNA_sequencing data.0 - linenr 100000
+2018/06/22 13:33:03 - SAMPLE_REMAP_FILE present.0 - linenr 150000
+2018/06/22 13:33:03 - Check if LOAD_TYPE = L.0 - linenr 100000
+2018/06/22 13:33:03 - SAMPLE_SUFFIX present.0 - linenr 150000
+2018/06/22 13:33:03 - Get pivoted file.0 - linenr 200000
+2018/06/22 13:33:03 - Check if LOAD_TYPE = I.0 - linenr 100000
+2018/06/22 13:33:03 - Select values 2.0 - linenr 150000
+2018/06/22 13:33:03 - Check for numeric intensity.0 - linenr 200000
+2018/06/22 13:33:03 - Insert to lt_src_RNA_sequencing_data.0 - linenr 100000
+2018/06/22 13:33:03 - Drop non-numeric data.0 - linenr 200000
+2018/06/22 13:33:03 - Select values for RNA_sequencing data.0 - linenr 150000
+2018/06/22 13:33:03 - SAMPLE_REMAP_FILE present.0 - linenr 200000
+2018/06/22 13:33:04 - Check if LOAD_TYPE = L.0 - linenr 150000
+2018/06/22 13:33:04 - SAMPLE_SUFFIX present.0 - linenr 200000
+2018/06/22 13:33:04 - Get pivoted file.0 - linenr 250000
+2018/06/22 13:33:04 - Check if LOAD_TYPE = I.0 - linenr 150000
+2018/06/22 13:33:04 - Select values 2.0 - linenr 200000
+2018/06/22 13:33:04 - Check for numeric intensity.0 - linenr 250000
+2018/06/22 13:33:04 - Insert to lt_src_RNA_sequencing_data.0 - linenr 150000
+2018/06/22 13:33:04 - Drop non-numeric data.0 - linenr 250000
+2018/06/22 13:33:04 - Select values for RNA_sequencing data.0 - linenr 200000
+2018/06/22 13:33:04 - SAMPLE_REMAP_FILE present.0 - linenr 250000
+2018/06/22 13:33:04 - Check if LOAD_TYPE = L.0 - linenr 200000
+2018/06/22 13:33:04 - SAMPLE_SUFFIX present.0 - linenr 250000
+2018/06/22 13:33:04 - Get pivoted file.0 - linenr 300000
+2018/06/22 13:33:04 - Check if LOAD_TYPE = I.0 - linenr 200000
+2018/06/22 13:33:04 - Select values 2.0 - linenr 250000
+2018/06/22 13:33:04 - Check for numeric intensity.0 - linenr 300000
+2018/06/22 13:33:05 - Insert to lt_src_RNA_sequencing_data.0 - linenr 200000
+2018/06/22 13:33:05 - Drop non-numeric data.0 - linenr 300000
+2018/06/22 13:33:05 - Select values for RNA_sequencing data.0 - linenr 250000
+2018/06/22 13:33:05 - SAMPLE_REMAP_FILE present.0 - linenr 300000
+2018/06/22 13:33:05 - Check if LOAD_TYPE = L.0 - linenr 250000
+2018/06/22 13:33:05 - SAMPLE_SUFFIX present.0 - linenr 300000
+2018/06/22 13:33:05 - Get pivoted file.0 - linenr 350000
+2018/06/22 13:33:05 - Check if LOAD_TYPE = I.0 - linenr 250000
+2018/06/22 13:33:05 - Select values 2.0 - linenr 300000
+2018/06/22 13:33:05 - Check for numeric intensity.0 - linenr 350000
+2018/06/22 13:33:05 - Insert to lt_src_RNA_sequencing_data.0 - linenr 250000
+2018/06/22 13:33:05 - Drop non-numeric data.0 - linenr 350000
+2018/06/22 13:33:06 - Select values for RNA_sequencing data.0 - linenr 300000
+2018/06/22 13:33:06 - SAMPLE_REMAP_FILE present.0 - linenr 350000
+2018/06/22 13:33:06 - Check if LOAD_TYPE = L.0 - linenr 300000
+2018/06/22 13:33:06 - SAMPLE_SUFFIX present.0 - linenr 350000
+2018/06/22 13:33:06 - Get pivoted file.0 - linenr 400000
+2018/06/22 13:33:06 - Check if LOAD_TYPE = I.0 - linenr 300000
+2018/06/22 13:33:06 - Select values 2.0 - linenr 350000
+2018/06/22 13:33:06 - Check for numeric intensity.0 - linenr 400000
+2018/06/22 13:33:06 - Insert to lt_src_RNA_sequencing_data.0 - linenr 300000
+2018/06/22 13:33:06 - Drop non-numeric data.0 - linenr 400000
+2018/06/22 13:33:06 - Select values for RNA_sequencing data.0 - linenr 350000
+2018/06/22 13:33:06 - SAMPLE_REMAP_FILE present.0 - linenr 400000
+2018/06/22 13:33:07 - Check if LOAD_TYPE = L.0 - linenr 350000
+2018/06/22 13:33:07 - SAMPLE_SUFFIX present.0 - linenr 400000
+2018/06/22 13:33:07 - Get pivoted file.0 - linenr 450000
+2018/06/22 13:33:07 - Check if LOAD_TYPE = I.0 - linenr 350000
+2018/06/22 13:33:07 - Select values 2.0 - linenr 400000
+2018/06/22 13:33:07 - Check for numeric intensity.0 - linenr 450000
+2018/06/22 13:33:07 - Insert to lt_src_RNA_sequencing_data.0 - linenr 350000
+2018/06/22 13:33:07 - Drop non-numeric data.0 - linenr 450000
+2018/06/22 13:33:07 - Select values for RNA_sequencing data.0 - linenr 400000
+2018/06/22 13:33:07 - SAMPLE_REMAP_FILE present.0 - linenr 450000
+2018/06/22 13:33:07 - Check if LOAD_TYPE = L.0 - linenr 400000
+2018/06/22 13:33:07 - SAMPLE_SUFFIX present.0 - linenr 450000
+2018/06/22 13:33:07 - Get pivoted file.0 - linenr 500000
+2018/06/22 13:33:07 - Check if LOAD_TYPE = I.0 - linenr 400000
+2018/06/22 13:33:07 - Select values 2.0 - linenr 450000
+2018/06/22 13:33:07 - Check for numeric intensity.0 - linenr 500000
+2018/06/22 13:33:08 - Insert to lt_src_RNA_sequencing_data.0 - linenr 400000
+2018/06/22 13:33:08 - Drop non-numeric data.0 - linenr 500000
+2018/06/22 13:33:08 - Select values for RNA_sequencing data.0 - linenr 450000
+2018/06/22 13:33:08 - SAMPLE_REMAP_FILE present.0 - linenr 500000
+2018/06/22 13:33:08 - Check if LOAD_TYPE = L.0 - linenr 450000
+2018/06/22 13:33:08 - SAMPLE_SUFFIX present.0 - linenr 500000
+2018/06/22 13:33:08 - Get pivoted file.0 - linenr 550000
+2018/06/22 13:33:08 - Check if LOAD_TYPE = I.0 - linenr 450000
+2018/06/22 13:33:08 - Select values 2.0 - linenr 500000
+2018/06/22 13:33:08 - Check for numeric intensity.0 - linenr 550000
+2018/06/22 13:33:08 - Insert to lt_src_RNA_sequencing_data.0 - linenr 450000
+2018/06/22 13:33:08 - Drop non-numeric data.0 - linenr 550000
+2018/06/22 13:33:09 - Select values for RNA_sequencing data.0 - linenr 500000
+2018/06/22 13:33:09 - SAMPLE_REMAP_FILE present.0 - linenr 550000
+2018/06/22 13:33:09 - Check if LOAD_TYPE = L.0 - linenr 500000
+2018/06/22 13:33:09 - SAMPLE_SUFFIX present.0 - linenr 550000
+2018/06/22 13:33:09 - Get pivoted file.0 - linenr 600000
+2018/06/22 13:33:09 - Check if LOAD_TYPE = I.0 - linenr 500000
+2018/06/22 13:33:09 - Select values 2.0 - linenr 550000
+2018/06/22 13:33:09 - Check for numeric intensity.0 - linenr 600000
+2018/06/22 13:33:09 - Insert to lt_src_RNA_sequencing_data.0 - linenr 500000
+2018/06/22 13:33:09 - Drop non-numeric data.0 - linenr 600000
+2018/06/22 13:33:09 - Select values for RNA_sequencing data.0 - linenr 550000
+2018/06/22 13:33:09 - SAMPLE_REMAP_FILE present.0 - linenr 600000
+2018/06/22 13:33:09 - Check if LOAD_TYPE = L.0 - linenr 550000
+2018/06/22 13:33:09 - SAMPLE_SUFFIX present.0 - linenr 600000
+2018/06/22 13:33:09 - Get pivoted file.0 - linenr 650000
+2018/06/22 13:33:10 - Check if LOAD_TYPE = I.0 - linenr 550000
+2018/06/22 13:33:10 - Select values 2.0 - linenr 600000
+2018/06/22 13:33:10 - Check for numeric intensity.0 - linenr 650000
+2018/06/22 13:33:10 - Insert to lt_src_RNA_sequencing_data.0 - linenr 550000
+2018/06/22 13:33:10 - Drop non-numeric data.0 - linenr 650000
+2018/06/22 13:33:10 - Select values for RNA_sequencing data.0 - linenr 600000
+2018/06/22 13:33:10 - SAMPLE_REMAP_FILE present.0 - linenr 650000
+2018/06/22 13:33:10 - Check if LOAD_TYPE = L.0 - linenr 600000
+2018/06/22 13:33:10 - SAMPLE_SUFFIX present.0 - linenr 650000
+2018/06/22 13:33:10 - Get pivoted file.0 - linenr 700000
+2018/06/22 13:33:10 - Check if LOAD_TYPE = I.0 - linenr 600000
+2018/06/22 13:33:10 - Select values 2.0 - linenr 650000
+2018/06/22 13:33:10 - Check for numeric intensity.0 - linenr 700000
+2018/06/22 13:33:10 - Insert to lt_src_RNA_sequencing_data.0 - linenr 600000
+2018/06/22 13:33:10 - Drop non-numeric data.0 - linenr 700000
+2018/06/22 13:33:11 - Select values for RNA_sequencing data.0 - linenr 650000
+2018/06/22 13:33:11 - SAMPLE_REMAP_FILE present.0 - linenr 700000
+2018/06/22 13:33:11 - Check if LOAD_TYPE = L.0 - linenr 650000
+2018/06/22 13:33:11 - SAMPLE_SUFFIX present.0 - linenr 700000
+2018/06/22 13:33:11 - Get pivoted file.0 - linenr 750000
+2018/06/22 13:33:11 - Check if LOAD_TYPE = I.0 - linenr 650000
+2018/06/22 13:33:11 - Select values 2.0 - linenr 700000
+2018/06/22 13:33:11 - Check for numeric intensity.0 - linenr 750000
+2018/06/22 13:33:11 - Insert to lt_src_RNA_sequencing_data.0 - linenr 650000
+2018/06/22 13:33:11 - Drop non-numeric data.0 - linenr 750000
+2018/06/22 13:33:12 - Select values for RNA_sequencing data.0 - linenr 700000
+2018/06/22 13:33:12 - SAMPLE_REMAP_FILE present.0 - linenr 750000
+2018/06/22 13:33:12 - Check if LOAD_TYPE = L.0 - linenr 700000
+2018/06/22 13:33:12 - SAMPLE_SUFFIX present.0 - linenr 750000
+2018/06/22 13:33:12 - Get pivoted file.0 - linenr 800000
+2018/06/22 13:33:12 - Check if LOAD_TYPE = I.0 - linenr 700000
+2018/06/22 13:33:12 - Select values 2.0 - linenr 750000
+2018/06/22 13:33:12 - Check for numeric intensity.0 - linenr 800000
+2018/06/22 13:33:12 - Insert to lt_src_RNA_sequencing_data.0 - linenr 700000
+2018/06/22 13:33:12 - Drop non-numeric data.0 - linenr 800000
+2018/06/22 13:33:12 - Select values for RNA_sequencing data.0 - linenr 750000
+2018/06/22 13:33:12 - SAMPLE_REMAP_FILE present.0 - linenr 800000
+2018/06/22 13:33:13 - Check if LOAD_TYPE = L.0 - linenr 750000
+2018/06/22 13:33:13 - SAMPLE_SUFFIX present.0 - linenr 800000
+2018/06/22 13:33:13 - Get pivoted file.0 - linenr 850000
+2018/06/22 13:33:13 - Check if LOAD_TYPE = I.0 - linenr 750000
+2018/06/22 13:33:13 - Select values 2.0 - linenr 800000
+2018/06/22 13:33:13 - Check for numeric intensity.0 - linenr 850000
+2018/06/22 13:33:13 - Insert to lt_src_RNA_sequencing_data.0 - linenr 750000
+2018/06/22 13:33:13 - Drop non-numeric data.0 - linenr 850000
+2018/06/22 13:33:13 - Select values for RNA_sequencing data.0 - linenr 800000
+2018/06/22 13:33:13 - SAMPLE_REMAP_FILE present.0 - linenr 850000
+2018/06/22 13:33:13 - Check if LOAD_TYPE = L.0 - linenr 800000
+2018/06/22 13:33:13 - SAMPLE_SUFFIX present.0 - linenr 850000
+2018/06/22 13:33:13 - Get pivoted file.0 - linenr 900000
+2018/06/22 13:33:13 - Check if LOAD_TYPE = I.0 - linenr 800000
+2018/06/22 13:33:13 - Select values 2.0 - linenr 850000
+2018/06/22 13:33:13 - Check for numeric intensity.0 - linenr 900000
+2018/06/22 13:33:14 - Insert to lt_src_RNA_sequencing_data.0 - linenr 800000
+2018/06/22 13:33:14 - Drop non-numeric data.0 - linenr 900000
+2018/06/22 13:33:14 - Select values for RNA_sequencing data.0 - linenr 850000
+2018/06/22 13:33:14 - SAMPLE_REMAP_FILE present.0 - linenr 900000
+2018/06/22 13:33:14 - Check if LOAD_TYPE = L.0 - linenr 850000
+2018/06/22 13:33:14 - SAMPLE_SUFFIX present.0 - linenr 900000
+2018/06/22 13:33:14 - Get pivoted file.0 - linenr 950000
+2018/06/22 13:33:14 - Check if LOAD_TYPE = I.0 - linenr 850000
+2018/06/22 13:33:14 - Select values 2.0 - linenr 900000
+2018/06/22 13:33:14 - Check for numeric intensity.0 - linenr 950000
+2018/06/22 13:33:14 - Insert to lt_src_RNA_sequencing_data.0 - linenr 850000
+2018/06/22 13:33:14 - Drop non-numeric data.0 - linenr 950000
+2018/06/22 13:33:15 - Select values for RNA_sequencing data.0 - linenr 900000
+2018/06/22 13:33:15 - SAMPLE_REMAP_FILE present.0 - linenr 950000
+2018/06/22 13:33:15 - Check if LOAD_TYPE = L.0 - linenr 900000
+2018/06/22 13:33:15 - SAMPLE_SUFFIX present.0 - linenr 950000
+2018/06/22 13:33:15 - Get pivoted file.0 - linenr 1000000
+2018/06/22 13:33:15 - Check if LOAD_TYPE = I.0 - linenr 900000
+2018/06/22 13:33:15 - Select values 2.0 - linenr 950000
+2018/06/22 13:33:15 - Check for numeric intensity.0 - linenr 1000000
+2018/06/22 13:33:15 - Insert to lt_src_RNA_sequencing_data.0 - linenr 900000
+2018/06/22 13:33:15 - Drop non-numeric data.0 - linenr 1000000
+2018/06/22 13:33:15 - Select values for RNA_sequencing data.0 - linenr 950000
+2018/06/22 13:33:15 - SAMPLE_REMAP_FILE present.0 - linenr 1000000
+2018/06/22 13:33:15 - Check if LOAD_TYPE = L.0 - linenr 950000
+2018/06/22 13:33:16 - SAMPLE_SUFFIX present.0 - linenr 1000000
+2018/06/22 13:33:16 - Get pivoted file.0 - linenr 1050000
+2018/06/22 13:33:16 - Check if LOAD_TYPE = I.0 - linenr 950000
+2018/06/22 13:33:16 - Select values 2.0 - linenr 1000000
+2018/06/22 13:33:16 - Check for numeric intensity.0 - linenr 1050000
+2018/06/22 13:33:16 - Insert to lt_src_RNA_sequencing_data.0 - linenr 950000
+2018/06/22 13:33:16 - Drop non-numeric data.0 - linenr 1050000
+2018/06/22 13:33:16 - Select values for RNA_sequencing data.0 - linenr 1000000
+2018/06/22 13:33:16 - SAMPLE_REMAP_FILE present.0 - linenr 1050000
+2018/06/22 13:33:16 - Check if LOAD_TYPE = L.0 - linenr 1000000
+2018/06/22 13:33:16 - SAMPLE_SUFFIX present.0 - linenr 1050000
+2018/06/22 13:33:16 - Get pivoted file.0 - linenr 1100000
+2018/06/22 13:33:16 - Check if LOAD_TYPE = I.0 - linenr 1000000
+2018/06/22 13:33:16 - Select values 2.0 - linenr 1050000
+2018/06/22 13:33:16 - Check for numeric intensity.0 - linenr 1100000
+2018/06/22 13:33:17 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1000000
+2018/06/22 13:33:17 - Drop non-numeric data.0 - linenr 1100000
+2018/06/22 13:33:17 - Select values for RNA_sequencing data.0 - linenr 1050000
+2018/06/22 13:33:17 - SAMPLE_REMAP_FILE present.0 - linenr 1100000
+2018/06/22 13:33:17 - Check if LOAD_TYPE = L.0 - linenr 1050000
+2018/06/22 13:33:17 - SAMPLE_SUFFIX present.0 - linenr 1100000
+2018/06/22 13:33:17 - Get pivoted file.0 - linenr 1150000
+2018/06/22 13:33:17 - Check if LOAD_TYPE = I.0 - linenr 1050000
+2018/06/22 13:33:17 - Select values 2.0 - linenr 1100000
+2018/06/22 13:33:17 - Check for numeric intensity.0 - linenr 1150000
+2018/06/22 13:33:17 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1050000
+2018/06/22 13:33:17 - Drop non-numeric data.0 - linenr 1150000
+2018/06/22 13:33:18 - Select values for RNA_sequencing data.0 - linenr 1100000
+2018/06/22 13:33:18 - SAMPLE_REMAP_FILE present.0 - linenr 1150000
+2018/06/22 13:33:18 - Check if LOAD_TYPE = L.0 - linenr 1100000
+2018/06/22 13:33:18 - SAMPLE_SUFFIX present.0 - linenr 1150000
+2018/06/22 13:33:18 - Get pivoted file.0 - linenr 1200000
+2018/06/22 13:33:18 - Check if LOAD_TYPE = I.0 - linenr 1100000
+2018/06/22 13:33:18 - Select values 2.0 - linenr 1150000
+2018/06/22 13:33:18 - Check for numeric intensity.0 - linenr 1200000
+2018/06/22 13:33:18 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1100000
+2018/06/22 13:33:18 - Drop non-numeric data.0 - linenr 1200000
+2018/06/22 13:33:18 - Select values for RNA_sequencing data.0 - linenr 1150000
+2018/06/22 13:33:18 - SAMPLE_REMAP_FILE present.0 - linenr 1200000
+2018/06/22 13:33:19 - Check if LOAD_TYPE = L.0 - linenr 1150000
+2018/06/22 13:33:19 - SAMPLE_SUFFIX present.0 - linenr 1200000
+2018/06/22 13:33:19 - Get pivoted file.0 - linenr 1250000
+2018/06/22 13:33:19 - Check if LOAD_TYPE = I.0 - linenr 1150000
+2018/06/22 13:33:19 - Select values 2.0 - linenr 1200000
+2018/06/22 13:33:19 - Check for numeric intensity.0 - linenr 1250000
+2018/06/22 13:33:19 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1150000
+2018/06/22 13:33:19 - Drop non-numeric data.0 - linenr 1250000
+2018/06/22 13:33:19 - Select values for RNA_sequencing data.0 - linenr 1200000
+2018/06/22 13:33:19 - SAMPLE_REMAP_FILE present.0 - linenr 1250000
+2018/06/22 13:33:19 - Check if LOAD_TYPE = L.0 - linenr 1200000
+2018/06/22 13:33:19 - SAMPLE_SUFFIX present.0 - linenr 1250000
+2018/06/22 13:33:19 - Get pivoted file.0 - linenr 1300000
+2018/06/22 13:33:19 - Check if LOAD_TYPE = I.0 - linenr 1200000
+2018/06/22 13:33:19 - Select values 2.0 - linenr 1250000
+2018/06/22 13:33:19 - Check for numeric intensity.0 - linenr 1300000
+2018/06/22 13:33:20 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1200000
+2018/06/22 13:33:20 - Drop non-numeric data.0 - linenr 1300000
+2018/06/22 13:33:20 - Select values for RNA_sequencing data.0 - linenr 1250000
+2018/06/22 13:33:20 - SAMPLE_REMAP_FILE present.0 - linenr 1300000
+2018/06/22 13:33:20 - Check if LOAD_TYPE = L.0 - linenr 1250000
+2018/06/22 13:33:20 - SAMPLE_SUFFIX present.0 - linenr 1300000
+2018/06/22 13:33:20 - Get pivoted file.0 - linenr 1350000
+2018/06/22 13:33:20 - Check if LOAD_TYPE = I.0 - linenr 1250000
+2018/06/22 13:33:20 - Select values 2.0 - linenr 1300000
+2018/06/22 13:33:20 - Check for numeric intensity.0 - linenr 1350000
+2018/06/22 13:33:20 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1250000
+2018/06/22 13:33:20 - Drop non-numeric data.0 - linenr 1350000
+2018/06/22 13:33:21 - Select values for RNA_sequencing data.0 - linenr 1300000
+2018/06/22 13:33:21 - SAMPLE_REMAP_FILE present.0 - linenr 1350000
+2018/06/22 13:33:21 - Check if LOAD_TYPE = L.0 - linenr 1300000
+2018/06/22 13:33:21 - SAMPLE_SUFFIX present.0 - linenr 1350000
+2018/06/22 13:33:21 - Get pivoted file.0 - linenr 1400000
+2018/06/22 13:33:21 - Check if LOAD_TYPE = I.0 - linenr 1300000
+2018/06/22 13:33:21 - Select values 2.0 - linenr 1350000
+2018/06/22 13:33:21 - Check for numeric intensity.0 - linenr 1400000
+2018/06/22 13:33:21 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1300000
+2018/06/22 13:33:21 - Drop non-numeric data.0 - linenr 1400000
+2018/06/22 13:33:21 - Select values for RNA_sequencing data.0 - linenr 1350000
+2018/06/22 13:33:21 - SAMPLE_REMAP_FILE present.0 - linenr 1400000
+2018/06/22 13:33:22 - Check if LOAD_TYPE = L.0 - linenr 1350000
+2018/06/22 13:33:22 - SAMPLE_SUFFIX present.0 - linenr 1400000
+2018/06/22 13:33:22 - Get pivoted file.0 - linenr 1450000
+2018/06/22 13:33:22 - Check if LOAD_TYPE = I.0 - linenr 1350000
+2018/06/22 13:33:22 - Select values 2.0 - linenr 1400000
+2018/06/22 13:33:22 - Check for numeric intensity.0 - linenr 1450000
+2018/06/22 13:33:22 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1350000
+2018/06/22 13:33:22 - Drop non-numeric data.0 - linenr 1450000
+2018/06/22 13:33:22 - Select values for RNA_sequencing data.0 - linenr 1400000
+2018/06/22 13:33:22 - SAMPLE_REMAP_FILE present.0 - linenr 1450000
+2018/06/22 13:33:22 - Check if LOAD_TYPE = L.0 - linenr 1400000
+2018/06/22 13:33:22 - SAMPLE_SUFFIX present.0 - linenr 1450000
+2018/06/22 13:33:22 - Get pivoted file.0 - linenr 1500000
+2018/06/22 13:33:23 - Check if LOAD_TYPE = I.0 - linenr 1400000
+2018/06/22 13:33:23 - Select values 2.0 - linenr 1450000
+2018/06/22 13:33:23 - Check for numeric intensity.0 - linenr 1500000
+2018/06/22 13:33:23 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1400000
+2018/06/22 13:33:23 - Drop non-numeric data.0 - linenr 1500000
+2018/06/22 13:33:23 - Select values for RNA_sequencing data.0 - linenr 1450000
+2018/06/22 13:33:23 - SAMPLE_REMAP_FILE present.0 - linenr 1500000
+2018/06/22 13:33:23 - Check if LOAD_TYPE = L.0 - linenr 1450000
+2018/06/22 13:33:23 - SAMPLE_SUFFIX present.0 - linenr 1500000
+2018/06/22 13:33:23 - Get pivoted file.0 - linenr 1550000
+2018/06/22 13:33:23 - Check if LOAD_TYPE = I.0 - linenr 1450000
+2018/06/22 13:33:23 - Select values 2.0 - linenr 1500000
+2018/06/22 13:33:23 - Check for numeric intensity.0 - linenr 1550000
+2018/06/22 13:33:23 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1450000
+2018/06/22 13:33:23 - Drop non-numeric data.0 - linenr 1550000
+2018/06/22 13:33:24 - Select values for RNA_sequencing data.0 - linenr 1500000
+2018/06/22 13:33:24 - SAMPLE_REMAP_FILE present.0 - linenr 1550000
+2018/06/22 13:33:24 - Check if LOAD_TYPE = L.0 - linenr 1500000
+2018/06/22 13:33:24 - SAMPLE_SUFFIX present.0 - linenr 1550000
+2018/06/22 13:33:24 - Get pivoted file.0 - linenr 1600000
+2018/06/22 13:33:24 - Check if LOAD_TYPE = I.0 - linenr 1500000
+2018/06/22 13:33:24 - Select values 2.0 - linenr 1550000
+2018/06/22 13:33:24 - Check for numeric intensity.0 - linenr 1600000
+2018/06/22 13:33:24 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1500000
+2018/06/22 13:33:24 - Drop non-numeric data.0 - linenr 1600000
+2018/06/22 13:33:25 - Select values for RNA_sequencing data.0 - linenr 1550000
+2018/06/22 13:33:25 - SAMPLE_REMAP_FILE present.0 - linenr 1600000
+2018/06/22 13:33:25 - Check if LOAD_TYPE = L.0 - linenr 1550000
+2018/06/22 13:33:25 - SAMPLE_SUFFIX present.0 - linenr 1600000
+2018/06/22 13:33:25 - Get pivoted file.0 - linenr 1650000
+2018/06/22 13:33:25 - Check if LOAD_TYPE = I.0 - linenr 1550000
+2018/06/22 13:33:25 - Select values 2.0 - linenr 1600000
+2018/06/22 13:33:25 - Check for numeric intensity.0 - linenr 1650000
+2018/06/22 13:33:25 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1550000
+2018/06/22 13:33:25 - Drop non-numeric data.0 - linenr 1650000
+2018/06/22 13:33:25 - Select values for RNA_sequencing data.0 - linenr 1600000
+2018/06/22 13:33:25 - SAMPLE_REMAP_FILE present.0 - linenr 1650000
+2018/06/22 13:33:26 - Check if LOAD_TYPE = L.0 - linenr 1600000
+2018/06/22 13:33:26 - SAMPLE_SUFFIX present.0 - linenr 1650000
+2018/06/22 13:33:26 - Get pivoted file.0 - linenr 1700000
+2018/06/22 13:33:26 - Check if LOAD_TYPE = I.0 - linenr 1600000
+2018/06/22 13:33:26 - Select values 2.0 - linenr 1650000
+2018/06/22 13:33:26 - Check for numeric intensity.0 - linenr 1700000
+2018/06/22 13:33:26 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1600000
+2018/06/22 13:33:26 - Drop non-numeric data.0 - linenr 1700000
+2018/06/22 13:33:26 - Select values for RNA_sequencing data.0 - linenr 1650000
+2018/06/22 13:33:26 - SAMPLE_REMAP_FILE present.0 - linenr 1700000
+2018/06/22 13:33:26 - Check if LOAD_TYPE = L.0 - linenr 1650000
+2018/06/22 13:33:26 - SAMPLE_SUFFIX present.0 - linenr 1700000
+2018/06/22 13:33:26 - Get pivoted file.0 - linenr 1750000
+2018/06/22 13:33:26 - Check if LOAD_TYPE = I.0 - linenr 1650000
+2018/06/22 13:33:27 - Select values 2.0 - linenr 1700000
+2018/06/22 13:33:27 - Check for numeric intensity.0 - linenr 1750000
+2018/06/22 13:33:27 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1650000
+2018/06/22 13:33:27 - Drop non-numeric data.0 - linenr 1750000
+2018/06/22 13:33:27 - Select values for RNA_sequencing data.0 - linenr 1700000
+2018/06/22 13:33:27 - SAMPLE_REMAP_FILE present.0 - linenr 1750000
+2018/06/22 13:33:27 - Check if LOAD_TYPE = L.0 - linenr 1700000
+2018/06/22 13:33:27 - SAMPLE_SUFFIX present.0 - linenr 1750000
+2018/06/22 13:33:27 - Get pivoted file.0 - linenr 1800000
+2018/06/22 13:33:27 - Check if LOAD_TYPE = I.0 - linenr 1700000
+2018/06/22 13:33:27 - Select values 2.0 - linenr 1750000
+2018/06/22 13:33:27 - Check for numeric intensity.0 - linenr 1800000
+2018/06/22 13:33:27 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1700000
+2018/06/22 13:33:27 - Drop non-numeric data.0 - linenr 1800000
+2018/06/22 13:33:28 - Select values for RNA_sequencing data.0 - linenr 1750000
+2018/06/22 13:33:28 - SAMPLE_REMAP_FILE present.0 - linenr 1800000
+2018/06/22 13:33:28 - Check if LOAD_TYPE = L.0 - linenr 1750000
+2018/06/22 13:33:28 - SAMPLE_SUFFIX present.0 - linenr 1800000
+2018/06/22 13:33:28 - Get pivoted file.0 - linenr 1850000
+2018/06/22 13:33:28 - Check if LOAD_TYPE = I.0 - linenr 1750000
+2018/06/22 13:33:28 - Select values 2.0 - linenr 1800000
+2018/06/22 13:33:28 - Check for numeric intensity.0 - linenr 1850000
+2018/06/22 13:33:28 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1750000
+2018/06/22 13:33:28 - Drop non-numeric data.0 - linenr 1850000
+2018/06/22 13:33:28 - Select values for RNA_sequencing data.0 - linenr 1800000
+2018/06/22 13:33:28 - SAMPLE_REMAP_FILE present.0 - linenr 1850000
+2018/06/22 13:33:29 - Check if LOAD_TYPE = L.0 - linenr 1800000
+2018/06/22 13:33:29 - SAMPLE_SUFFIX present.0 - linenr 1850000
+2018/06/22 13:33:29 - Get pivoted file.0 - linenr 1900000
+2018/06/22 13:33:29 - Check if LOAD_TYPE = I.0 - linenr 1800000
+2018/06/22 13:33:29 - Select values 2.0 - linenr 1850000
+2018/06/22 13:33:29 - Check for numeric intensity.0 - linenr 1900000
+2018/06/22 13:33:29 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1800000
+2018/06/22 13:33:29 - Drop non-numeric data.0 - linenr 1900000
+2018/06/22 13:33:29 - Select values for RNA_sequencing data.0 - linenr 1850000
+2018/06/22 13:33:29 - SAMPLE_REMAP_FILE present.0 - linenr 1900000
+2018/06/22 13:33:29 - Check if LOAD_TYPE = L.0 - linenr 1850000
+2018/06/22 13:33:29 - SAMPLE_SUFFIX present.0 - linenr 1900000
+2018/06/22 13:33:29 - Get pivoted file.0 - linenr 1950000
+2018/06/22 13:33:30 - Check if LOAD_TYPE = I.0 - linenr 1850000
+2018/06/22 13:33:30 - Select values 2.0 - linenr 1900000
+2018/06/22 13:33:30 - Check for numeric intensity.0 - linenr 1950000
+2018/06/22 13:33:30 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1850000
+2018/06/22 13:33:30 - Drop non-numeric data.0 - linenr 1950000
+2018/06/22 13:33:30 - Select values for RNA_sequencing data.0 - linenr 1900000
+2018/06/22 13:33:30 - SAMPLE_REMAP_FILE present.0 - linenr 1950000
+2018/06/22 13:33:30 - Check if LOAD_TYPE = L.0 - linenr 1900000
+2018/06/22 13:33:30 - SAMPLE_SUFFIX present.0 - linenr 1950000
+2018/06/22 13:33:30 - Get pivoted file.0 - linenr 2000000
+2018/06/22 13:33:30 - Check if LOAD_TYPE = I.0 - linenr 1900000
+2018/06/22 13:33:30 - Select values 2.0 - linenr 1950000
+2018/06/22 13:33:30 - Check for numeric intensity.0 - linenr 2000000
+2018/06/22 13:33:30 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1900000
+2018/06/22 13:33:30 - Drop non-numeric data.0 - linenr 2000000
+2018/06/22 13:33:31 - Select values for RNA_sequencing data.0 - linenr 1950000
+2018/06/22 13:33:31 - SAMPLE_REMAP_FILE present.0 - linenr 2000000
+2018/06/22 13:33:31 - Check if LOAD_TYPE = L.0 - linenr 1950000
+2018/06/22 13:33:31 - SAMPLE_SUFFIX present.0 - linenr 2000000
+2018/06/22 13:33:31 - Get pivoted file.0 - linenr 2050000
+2018/06/22 13:33:31 - Check if LOAD_TYPE = I.0 - linenr 1950000
+2018/06/22 13:33:31 - Select values 2.0 - linenr 2000000
+2018/06/22 13:33:31 - Check for numeric intensity.0 - linenr 2050000
+2018/06/22 13:33:31 - Insert to lt_src_RNA_sequencing_data.0 - linenr 1950000
+2018/06/22 13:33:31 - Get pivoted file.0 - Finished processing (I=2069369, O=0, R=0, W=2069368, U=1, E=0)
+2018/06/22 13:33:31 - Drop non-numeric data.0 - linenr 2050000
+2018/06/22 13:33:31 - Check for numeric intensity.0 - Finished processing (I=0, O=0, R=2069368, W=2069368, U=0, E=0)
+2018/06/22 13:33:32 - Drop non-numeric data.0 - Finished processing (I=0, O=0, R=2069368, W=2069368, U=0, E=0)
+2018/06/22 13:33:32 - Select values for RNA_sequencing data.0 - linenr 2000000
+2018/06/22 13:33:32 - SAMPLE_REMAP_FILE present.0 - linenr 2050000
+2018/06/22 13:33:32 - Check if LOAD_TYPE = L.0 - linenr 2000000
+2018/06/22 13:33:32 - Get sample variables.0 - Finished processing (I=0, O=0, R=2069368, W=2069368, U=0, E=0)
+2018/06/22 13:33:32 - SAMPLE_SUFFIX present.0 - linenr 2050000
+2018/06/22 13:33:32 - Check if LOAD_TYPE = I.0 - linenr 2000000
+2018/06/22 13:33:32 - SAMPLE_REMAP_FILE present.0 - Finished processing (I=0, O=0, R=2069368, W=2069368, U=0, E=0)
+2018/06/22 13:33:32 - Select values 2.0 - linenr 2050000
+2018/06/22 13:33:32 - SAMPLE_SUFFIX present.0 - Finished processing (I=0, O=0, R=2069368, W=2069368, U=0, E=0)
+2018/06/22 13:33:32 - Insert to lt_src_RNA_sequencing_data.0 - linenr 2000000
+2018/06/22 13:33:32 - Select values 2.0 - Finished processing (I=0, O=0, R=2069368, W=2069368, U=0, E=0)
+2018/06/22 13:33:32 - Get Variables.0 - Finished processing (I=0, O=0, R=2069368, W=2069368, U=0, E=0)
+2018/06/22 13:33:32 - Select values for RNA_sequencing data.0 - linenr 2050000
+2018/06/22 13:33:32 - Check if LOAD_TYPE = L.0 - linenr 2050000
+2018/06/22 13:33:32 - Trim trial_name.0 - Finished processing (I=0, O=0, R=2069368, W=2069368, U=0, E=0)
+2018/06/22 13:33:33 - Check if LOAD_TYPE = I.0 - linenr 2050000
+2018/06/22 13:33:33 - Select values for RNA_sequencing data.0 - Finished processing (I=0, O=0, R=2069368, W=2069368, U=0, E=0)
+2018/06/22 13:33:33 - Check if LOAD_TYPE = L.0 - Finished processing (I=0, O=0, R=2069368, W=2069368, U=0, E=0)
+2018/06/22 13:33:33 - Insert to lt_src_RNA_sequencing_data.0 - linenr 2050000
+2018/06/22 13:33:33 - Check if LOAD_TYPE = I.0 - Finished processing (I=0, O=0, R=2069368, W=2069368, U=0, E=0)
+2018/06/22 13:33:33 - Insert to lt_src_RNA_sequencing_data.0 - Finished processing (I=0, O=2069368, R=2069368, W=2069368, U=0, E=0)
+2018/06/22 13:33:33 - Get stats from steps.0 - Finished processing (I=0, O=0, R=4, W=8, U=0, E=0)
+2018/06/22 13:33:33 - Get stats for output steps.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2018/06/22 13:33:33 - Copy rows to result.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2018/06/22 13:33:33 - Sum output rows.0 - Finished processing (I=0, O=0, R=2, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Dummy (do nothing) 2.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2018/06/22 13:33:33 - Check for 0 rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Dummy (do nothing) 3.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - load_RNA_sequencing_expression_one_study - Starting entry [Check LOAD_TYPE = F]
+2018/06/22 13:33:33 - load_RNA_sequencing_expression_one_study - Starting entry [Write RNA sequencing audit]
+2018/06/22 13:33:33 - Write RNA sequencing audit - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/write_RNA_sequencing_audit.ktr]
+2018/06/22 13:33:33 - write_RNA_sequencing_audit - Dispatching started for transformation [write_RNA_sequencing_audit]
+2018/06/22 13:33:33 - Get Audit rows.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2018/06/22 13:33:33 - Reset step names.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2018/06/22 13:33:33 - Set step_number based on step_name.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2018/06/22 13:33:33 - Sort audit records by step_number.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2018/06/22 13:33:33 - Write to log 2.0 - 
+2018/06/22 13:33:33 - Write to log 2.0 - ------------> Linenr 1------------------------------
+2018/06/22 13:33:33 - Write to log 2.0 - *** Unknown audit step name ****
+2018/06/22 13:33:33 - Write to log 2.0 - 
+2018/06/22 13:33:33 - Write to log 2.0 - Step name = Unknown step
+2018/06/22 13:33:33 - Write to log 2.0 - Step id = TableOutput
+2018/06/22 13:33:33 - Write to log 2.0 - Lines input = 0
+2018/06/22 13:33:33 - Write to log 2.0 - Lines output = 2069368
+2018/06/22 13:33:33 - Write to log 2.0 - Lines red = 2069368
+2018/06/22 13:33:33 - Write to log 2.0 - Lines updated = 0
+2018/06/22 13:33:33 - Write to log 2.0 - Lines written = 2069368
+2018/06/22 13:33:33 - Write to log 2.0 - Lines rejected = 0
+2018/06/22 13:33:33 - Write to log 2.0 - Duration = 31732
+2018/06/22 13:33:33 - Write to log 2.0 - step_number = 99
+2018/06/22 13:33:33 - Write to log 2.0 - 
+2018/06/22 13:33:33 - Write to log 2.0 - ====================
+2018/06/22 13:33:33 - Split for input and output counts.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2018/06/22 13:33:33 - Write to log 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Set counts for output steps.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2018/06/22 13:33:33 - Set step_number to numeric.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2018/06/22 13:33:33 - Get Variables.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2018/06/22 13:33:33 - Add proc_prefix, step_status.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2018/06/22 13:33:33 - Select values.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2018/06/22 13:33:33 - Copy rows to result.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2018/06/22 13:33:33 - load_RNA_sequencing_expression_one_study - Starting entry [Write audit for loaded rows]
+2018/06/22 13:33:33 - Write audit for probeset count, sample count - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/cz_write_audit.ktr]
+2018/06/22 13:33:33 - cz_write_audit - Dispatching started for transformation [cz_write_audit]
+2018/06/22 13:33:33 - Get rows from result.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Get Job Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Add Kettle prefix.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Create procedure_name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Call cz_write_audit.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - cz_write_audit - Dispatching started for transformation [cz_write_audit]
+2018/06/22 13:33:33 - Get rows from result.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Get Job Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Add Kettle prefix.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Create procedure_name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Call cz_write_audit.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - cz_write_audit - Dispatching started for transformation [cz_write_audit]
+2018/06/22 13:33:33 - Get rows from result.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Get Job Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Add Kettle prefix.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Create procedure_name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Call cz_write_audit.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - load_RNA_sequencing_expression_one_study - Starting entry [Delete file]
+2018/06/22 13:33:33 - Delete file - File [/tmp/GSE48213_all_patients_pivot.txt] deleted!
+2018/06/22 13:33:33 - load_RNA_sequencing_expression_one_study - Finished job entry [Delete file] (result=[true])
+2018/06/22 13:33:33 - load_RNA_sequencing_expression_one_study - Finished job entry [Write audit for loaded rows] (result=[true])
+2018/06/22 13:33:33 - load_RNA_sequencing_expression_one_study - Finished job entry [Write RNA sequencing audit] (result=[true])
+2018/06/22 13:33:33 - load_RNA_sequencing_expression_one_study - Finished job entry [Check LOAD_TYPE = F] (result=[true])
+2018/06/22 13:33:33 - load_RNA_sequencing_expression_one_study - Finished job entry [Load RNA sequencing expression data to lz] (result=[true])
+2018/06/22 13:33:33 - load_RNA_sequencing_expression_one_study - Finished job entry [pivot] (result=[true])
+2018/06/22 13:33:33 - load_RNA_sequencing_expression_one_study - Finished job entry [Write audit for probeset count, sample count] (result=[true])
+2018/06/22 13:33:33 - load_RNA_sequencing_expression_one_study - Finished job entry [Validate RNA sequencing header has same nbr columns as data] (result=[true])
+2018/06/22 13:33:33 - load_RNA_sequencing_expression_one_study - Finished job entry [Set RNA sequencing filename as variable] (result=[true])
+2018/06/22 13:33:33 - load_all_RNA_sequencing_data - Finished job entry [load each file for study] (result=[true])
+2018/06/22 13:33:33 - load_all_RNA_sequencing_data - Finished job entry [Get list of filenames for Study] (result=[true])
+2018/06/22 13:33:33 - load_all_RNA_sequencing_data - Finished job entry [Load subject-sample map] (result=[true])
+2018/06/22 13:33:33 - load_all_RNA_sequencing_data - Finished job entry [truncate lt_src_RNA_sequencing_data] (result=[true])
+2018/06/22 13:33:33 - load_all_RNA_sequencing_data - Finished job entry [Write audit with study_id] (result=[true])
+2018/06/22 13:33:33 - load_all_RNA_sequencing_data - Finished job entry [Create study_id audit record] (result=[true])
+2018/06/22 13:33:33 - load_all_RNA_sequencing_data - Finished job entry [Check if file-only load] (result=[true])
+2018/06/22 13:33:33 - load_RNA_sequencing_data - Starting entry [Check for File Only load]
+2018/06/22 13:33:33 - load_RNA_sequencing_data - Starting entry [run i2b2_process_RNA_sequencing_data]
+2018/06/22 13:33:33 - run i2b2_process_RNA_sequencing_data - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/run_i2b2_process_RNA_sequencing_data.ktr]
+2018/06/22 13:33:33 - run_i2b2_process_RNA_sequencing_data - Dispatching started for transformation [run_i2b2_process_RNA_sequencing_data]
+2018/06/22 13:33:33 - Get Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Write parameters.0 - 
+2018/06/22 13:33:33 - Write parameters.0 - ------------> Linenr 1------------------------------
+2018/06/22 13:33:33 - Write parameters.0 - *** i2b2_process_RNA_sequencing_data ***
+2018/06/22 13:33:33 - Write parameters.0 - 
+2018/06/22 13:33:33 - Write parameters.0 - study_id = TEST_GSE48213
+2018/06/22 13:33:33 - Write parameters.0 - top_node = \Test Studies\test_RNAseq_GSE48213\
+2018/06/22 13:33:33 - Write parameters.0 - data_type = R
+2018/06/22 13:33:33 - Write parameters.0 - source_cd = STD
+2018/06/22 13:33:33 - Write parameters.0 - log_base =  00000002
+2018/06/22 13:33:33 - Write parameters.0 - security_required = N
+2018/06/22 13:33:33 - Write parameters.0 - job_id =  00000000000000000000000000000000011
+2018/06/22 13:33:33 - Write parameters.0 - inc_load = N
+2018/06/22 13:33:33 - Write parameters.0 - 
+2018/06/22 13:33:33 - Write parameters.0 - ====================
+2018/06/22 13:33:33 - Uppercase fields.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Check for valid DATA_TYPE.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:33:33 - Write parameters.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:38:29 - Execute i2b2_process_RNA_sequencing_data.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:38:29 - Check for 0 return code.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:38:29 - Dummy (do nothing).0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:38:29 - load_RNA_sequencing_data - Starting entry [End Audit]
+2018/06/22 13:38:29 - End Audit - Loading transformation from XML file [file:///transmart/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/cz_end_audit.ktr]
+2018/06/22 13:38:29 - cz_end_audit - Dispatching started for transformation [cz_end_audit]
+2018/06/22 13:38:29 - Generate Rows.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2018/06/22 13:38:29 - Get Job Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:38:29 - Call cz_end_audit.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2018/06/22 13:38:29 - load_RNA_sequencing_data - Finished job entry [End Audit] (result=[true])
+2018/06/22 13:38:29 - load_RNA_sequencing_data - Finished job entry [run i2b2_process_RNA_sequencing_data] (result=[true])
+2018/06/22 13:38:29 - load_RNA_sequencing_data - Finished job entry [Check for File Only load] (result=[true])
+2018/06/22 13:38:29 - load_RNA_sequencing_data - Finished job entry [Load All RNA sequencing data for study] (result=[true])
+2018/06/22 13:38:29 - load_RNA_sequencing_data - Finished job entry [Start Audit] (result=[true])
+2018/06/22 13:38:29 - load_RNA_sequencing_data - Finished job entry [Check if subject-sample map file exists] (result=[true])
+2018/06/22 13:38:29 - load_RNA_sequencing_data - Finished job entry [Fail if number of files = 0] (result=[true])
+2018/06/22 13:38:29 - load_RNA_sequencing_data - Finished job entry [Check number of RNA sequencing data files] (result=[true])
+2018/06/22 13:38:29 - load_RNA_sequencing_data - Finished job entry [Write To Log] (result=[true])
+2018/06/22 13:38:29 - load_RNA_sequencing_data - Finished job entry [Validate parameters] (result=[true])
+2018/06/22 13:38:29 - load_RNA_sequencing_data - Job execution finished
+2018/06/22 13:38:29 - Kitchen - Finished!
+2018/06/22 13:38:29 - Kitchen - Start=2018/06/22 13:32:53.657, Stop=2018/06/22 13:38:29.744
+2018/06/22 13:38:29 - Kitchen - Processing ended after 5 minutes and 36 seconds (336 seconds total).
+All done.
+rm ../studies/SanofiRnaseqGSE48213/rnaseqmake: unlink: ../studies/SanofiRnaseqGSE48213/rnaseq: Is a directory
+ ../studies/SanofiRnaseqGSE48213/rnaseq.params
+make: Leaving directory `/transmart/transmart-data/samples/postgres'
