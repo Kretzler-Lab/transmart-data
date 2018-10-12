@@ -16,10 +16,30 @@ if [ $PLATFORM_LOADED = 't' ]; then
         echo "Platform already loaded, skipping platform load"
 else
         nohup make -C samples/postgres load_annotation_$PLATFORM > $PLATFORM.annotation.out &
+        pid=$!
+
+	# $! gets the pid of the last command launched in the background
+        wait $pid
 fi
 
-nohup make -C samples/postgres load_expression_$studyName > $studyName.expression.out &
+# $? contains the return code for the last background process run
+returnCode=$?
 
-echo "Tailing log file\n"
-tail -f $studyName.expression.out
+if [ $returnCode = 0 ]; then
+	nohup make -C samples/postgres load_expression_$studyName > $studyName.expression.out &
+	echo "To see the progress of the load tail the log $studyName.expression.out"
+	pid=$!
+	wait $pid
+else
+	echo "Annotation load failed...check log.  $PLATFORM_annotation.out"
+fi
 
+returnCode=$?
+
+if [ $returnCode = 0 ]; then
+	echo "Name of the tooltip file:"
+	read $toolTips
+	`psql -d transmart "SELECT i2b2metadata.add_tooltips('/transmart/transmart-data/samples/studies/$studyName/$toolTips', FALSE, FALSE);')"`
+else
+	echo "Expression load failed...check log.  $studyName.expression.out"
+fi
