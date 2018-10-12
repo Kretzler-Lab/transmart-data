@@ -2,6 +2,8 @@
 
 echo "Directory Name for study (ex: Neptune_V16): "
 read studyName
+echo "Name of the tooltip file:"
+read toolTips
 
 source vars
 dos2unix ./samples/studies/$studyName/expression.params
@@ -37,9 +39,9 @@ fi
 returnCode=$?
 
 if [ $returnCode = 0 ]; then
-	echo "Name of the tooltip file:"
-	read $toolTips
-	`psql -d transmart "SELECT i2b2metadata.add_tooltips('/transmart/transmart-data/samples/studies/$studyName/$toolTips', FALSE, FALSE);')"`
+	RESULT=`psql -d transmart -c "SELECT i2b2metadata.add_tooltips('/transmart/transmart-data/samples/studies/$studyName/$toolTips', '$studyName', FALSE, FALSE);"`
+	echo $RESULT
+
 else
 	echo "Expression load failed...check log.  $studyName.expression.out"
 fi
