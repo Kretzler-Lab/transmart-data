@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo "***********************************"
+echo "You might want to run me in screen"
+echo "***********************************"
+echo ""
+
 echo "Directory Name for study (ex: Neptune_V16): "
 read studyName
 

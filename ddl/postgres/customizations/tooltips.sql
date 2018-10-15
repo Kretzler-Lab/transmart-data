@@ -8,10 +8,10 @@ SELECT md.modifier_path, md.modifier_cd, md.name_char, md.modifier_blob, md.upda
 
 ALTER TABLE "i2b2demodata"."modifier_dimension_view" OWNER TO "i2b2demodata";
 
-CREATE OR REPLACE FUNCTION "i2b2metadata"."add_tooltips"(IN filename varchar, IN studyname varchar, IN add_frontslashes bool, IN add_endslashes bool)
+EATE FUNCTION i2b2metadata.add_tooltips(IN filename varchar, IN add_frontslashes bool, IN add_endslashes bool)
   RETURNS SETOF "pg_catalog"."text" AS $BODY$
 
-DECLARE
+DECLARE 
 	num_rows int;
 	message TEXT;
 	tooltip_row RECORD;
@@ -29,26 +29,14 @@ BEGIN
 		ELSE
 			this_nodepath = tooltip_row.nodepath;
 		END IF;
-
-		IF this_nodepath = '\' OR this_nodepath IS NULL THEN
-			this_nodepath = '';
-		END IF;
-
-		this_nodepath = regexp_replace(this_nodepath, '\+', '\', 'g');
-		this_nodepath = regexp_replace(this_nodepath, '\_', ' ', 'g');
-		this_nodepath = '\Private Studies\' || studyname || '\' || this_nodepath;
-
 		PERFORM c_fullname FROM i2b2metadata.i2b2 
 		WHERE c_fullname = this_nodepath;
-
 		IF FOUND THEN
 			UPDATE i2b2metadata.i2b2 
 			SET c_tooltip = tooltip_row.tooltip_text
 			WHERE c_fullname = this_nodepath;
-
 			PERFORM path FROM i2b2metadata.i2b2_tags
 			WHERE path = this_nodepath;
-
 			IF FOUND THEN
 				UPDATE i2b2metadata.i2b2_tags
 				SET tag = tooltip_row.tooltip_text
@@ -57,11 +45,9 @@ BEGIN
 				INSERT INTO i2b2metadata.i2b2_tags("path", tag, tag_type, tags_idx)
 				VALUES(this_nodepath,tooltip_row.tooltip_text,'Details', 0);				
 			END IF;
-
 		ELSE
 			INSERT INTO tooltip_results(nodepath) VALUES(this_nodepath);
 		END IF;
-
 	END LOOP;
 RETURN QUERY EXECUTE 'SELECT * FROM tooltip_results;';
 DISCARD TEMP;
