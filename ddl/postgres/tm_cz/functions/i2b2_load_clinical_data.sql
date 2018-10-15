@@ -1,7 +1,7 @@
 --
 -- Name: i2b2_load_clinical_data(character varying, character varying, character varying, character varying, numeric); Type: FUNCTION; Schema: tm_cz; Owner: -
 --
-CREATE OR REPLACE FUNCTION i2b2_load_clinical_data(trial_id character varying, top_node character varying, secure_study character varying DEFAULT 'N'::character varying, highlight_study character varying DEFAULT 'N'::character varying, currentjobid numeric DEFAULT 0) RETURNS numeric
+CREATE OR REPLACE FUNCTION tm_cz.i2b2_load_clinical_data(trial_id character varying, top_node character varying, secure_study character varying DEFAULT 'N'::character varying, highlight_study character varying DEFAULT 'N'::character varying, currentjobid numeric DEFAULT 0) RETURNS numeric
     LANGUAGE plpgsql SECURITY DEFINER
     AS $$
 /*************************************************************************
