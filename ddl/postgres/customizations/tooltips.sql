@@ -8,7 +8,7 @@ SELECT md.modifier_path, md.modifier_cd, md.name_char, md.modifier_blob, md.upda
 
 ALTER TABLE "i2b2demodata"."modifier_dimension_view" OWNER TO "i2b2demodata";
 
-EATE FUNCTION i2b2metadata.add_tooltips(IN filename varchar, IN add_frontslashes bool, IN add_endslashes bool)
+CREATE FUNCTION i2b2metadata.add_tooltips(IN filename varchar, IN add_frontslashes bool, IN add_endslashes bool)
   RETURNS SETOF "pg_catalog"."text" AS $BODY$
 
 DECLARE 
